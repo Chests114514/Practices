@@ -83,7 +83,7 @@ instr1()
         cout << "Enter your favorite dessert:\n";
         cin >> dessert;
         cout << "I have some delicious " << dessert;
-        cout << " for you, " << name < ".\n";
+        cout << " for you, " << name << ".\n";
         instr2();        
         return 0;
 }
