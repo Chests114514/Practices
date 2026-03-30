@@ -1,13 +1,15 @@
 // Composite
 
-#include <iostream>	// 4.1 4.2 4.3 4.4 4.5
+#include <iostream>	// 4.1 4.2 4.3 4.4 4.5 4.6 4.7
 #include <cstring>	// 4.2
+#include <string>       // 4.7
 
 int strings();
 int instr1();
 int instr2();
 int instr3();
 int numstr();
+int strtype1();
 
 int main()
 {
@@ -68,7 +70,7 @@ int strings()
 	return 0;
 }
 
-instr1()
+int instr1()
 {
         using namespace std;
         // 4.3 instr1.cpp -- reading more than one string
@@ -88,7 +90,7 @@ instr1()
         return 0;
 }
 
-instr2()
+int instr2()
 {
         using namespace std;
         // 4.4 instr2.cpp -- reading more than one word with getline
@@ -108,7 +110,7 @@ instr2()
         return 0;
 }
 
-instr3()
+int instr3()
 {
         using namespace std;
         // instr3.cpp -- reading more than one word with get() & get()
@@ -128,7 +130,7 @@ instr3()
         return 0;
 }
 
-numstr()
+int numstr()
 {
         using namespace std;
         // 4.6 numstr.cpp -- following number input with line input
@@ -143,5 +145,32 @@ numstr()
         cout << "Year built: " << year << endl;
         cout << "Address: " << address << endl;
         cout << "Done!\n";
+        strtype1();
+        return 0;
+}
+
+int strtype1()
+{
+        using namespace std;
+        // 4.7 strtype1.cpp -- using the C++ string class
+        cout << "4.7" << endl;
+
+        char charr1[20];                // create an empty array
+        char charr2[20] = "jaguar";     // create an initialized array
+        string str1;                    // create an empty string object
+        string str2 = "panther";        // create an initialized string
+        
+        cout << "Enter a kind of feline: ";
+        cin >> charr1;
+        cout << "Enter another kind of feline: ";
+        cin >> str1;                    // use cin for input
+        cout << "Here are some felines:\n";
+        cout << charr1 << " " << charr2 << " "
+             << str1 << " " << str2 <<  // use cout for output
+             endl;
+        cout << "The third letter in " << charr2 << " is "
+             << charr2[2] << endl;
+        cout << "The third letter in " << str2 << " is "
+             << str2[2] << endl;        // use array notation
         return 0;
 }
