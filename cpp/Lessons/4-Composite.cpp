@@ -1,8 +1,8 @@
 // Composite
 
-#include <iostream>	// 4.1 4.2 4.3 4.4 4.5 4.6 4.7
-#include <cstring>	// 4.2
-#include <string>       // 4.7
+#include <iostream>	// 4.1 4.2 4.3 4.4 4.5 4.6 4.7 4.8 4.9 4.10
+#include <cstring>	// 4.2 4.9 4.10
+#include <string>       // 4.7 4.8 4.9 4.10
 
 int strings();
 int instr1();
@@ -10,6 +10,9 @@ int instr2();
 int instr3();
 int numstr();
 int strtype1();
+int strtype2();
+int strtype3();
+int strtype4();
 
 int main()
 {
@@ -172,5 +175,91 @@ int strtype1()
              << charr2[2] << endl;
         cout << "The third letter in " << str2 << " is "
              << str2[2] << endl;        // use array notation
+        strtype2();
+        return 0;
+}
+
+int strtype2()
+{
+        using namespace std;
+        // 4.8 strtype2.cpp -- assigning, adding, and appending
+        cout << "4.8" << endl;
+
+        string s1 = "penguin";
+        string s2, s3;
+
+        cout << "You can assign one string object to another: s2 = s1\n";
+        s2 = s1;
+        cout << "s1: " << s1 << ", s2: " << s2 << endl;
+        cout << "You can assign a C-style string to a string object.\n";
+        cout << "s2 = \"buzzard\"\n";
+        s2 = "buzzard";
+        cout << "s2: " << s2 << endl;
+        cout << "You can concatenate strings: s3 = s1 + s2\n";
+        s3 = s1 + s2;
+        cout << "s3: " << s3 << endl;
+        cout << "You can append strings.\n";
+        s1 += s2;
+        cout << "s1 += s2 yields s1 = " << s1 << endl;
+        s2 += " for a day";
+        cout << "s2 += \" for a day\" yields s2 = " << s2 << endl;
+        strtype3();
+        return 0; 
+}
+
+strtype3()
+{
+        using namespace std;
+        // 4.9 strtype3.cpp -- more string class features
+        cout << "4.9" << endl;
+
+        char charr1[20];
+        char charr2[20] = "jaguar";
+        string str1;
+        string str2 = "panther";
+
+        // assignment for string objects and character arrays
+        str1 = str2;                    // copy str2 to str1
+        strcpy(charr1, charr2);         // copy charr2 to charr1
+
+        // appending for string objects and character arrays
+        str1 += " paste";               // add paste to end of str1
+        strcat(charr1, " juice");       // add juice to the end of charr1
+
+        // finding the length of a string object and a C-style string
+        int len1 = str1.size();         // obtain length of str1
+        int len2 = strlen(charr1);      // obtain length of charr1
+
+        cout << "The string " << str1 << " contains "
+             << len1 << " characters.\n";
+        cout << "The string " << charr1 << " contains "
+             << len2 << " characters.\n";
+        strtype4();
+        return 0;
+}
+
+int strtype4()
+{
+        using namespace std;
+        // 4.10 strtype.cpp -- line input
+        cout << "4.10" << endl;
+
+        char charr[20];
+        string str;
+
+        cout << "Length of string in charr before input: "
+             << strlen(charr) << endl;
+        cout << "Length of string in str before input: "
+             << str.size() << endl;
+        cout << "Enter a line of text:\n";
+        cin.getline(charr, 20);         // indicate maximum length
+        cout << "You entered: " << charr << endl;
+        cout << "Enter another line of text:\n";
+        getline(cin, str);              // cin now an argument; no length specifier
+        cout << "You entered: " << str << endl;
+        cout << "Length of strin in charr after input: "
+             << strlen(charr) << endl;
+        cout << "Length of string in str after input: "
+             << str.size() << endl;
         return 0;
 }
