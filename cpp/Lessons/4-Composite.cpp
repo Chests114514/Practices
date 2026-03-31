@@ -1,6 +1,6 @@
 // Composite
 
-#include <iostream>	// 4.1 4.2 4.3 4.4 4.5 4.6 4.7 4.8 4.9 4.10
+#include <iostream>	// 4.1 4.2 4.3 4.4 4.5 4.6 4.7 4.8 4.9 4.10 4.11 4.12 4.13
 #include <cstring>	// 4.2 4.9 4.10
 #include <string>       // 4.7 4.8 4.9 4.10
 
@@ -13,6 +13,9 @@ int strtype1();
 int strtype2();
 int strtype3();
 int strtype4();
+int structur();
+int assgn_st();
+int arrstruc();
 
 int main()
 {
@@ -207,7 +210,7 @@ int strtype2()
         return 0; 
 }
 
-strtype3()
+int strtype3()
 {
         using namespace std;
         // 4.9 strtype3.cpp -- more string class features
@@ -261,5 +264,95 @@ int strtype4()
              << strlen(charr) << endl;
         cout << "Length of string in str after input: "
              << str.size() << endl;
+        structur();
+        return 0;
+}
+
+// 4.11 structur.cpp -- a simple structure
+struct inflatable
+{
+        char name[20];
+        float volume;
+        double price;
+};
+int structur()
+{
+        using namespace std;
+        cout << "4.11" << endl;
+
+        inflatable guest =
+        {
+                "Glorious Gloria",      // name value
+                1.88,                   // volume value
+                29.99                   // price value
+        };      // guest is a structure variable of type inflatable
+// It's initialized to the indicated values
+        inflatable pal =
+        {
+                "Audacious Arthur",
+                3.12,
+                32.99
+        };      // pal is a second variable of type inflatable
+// NOTE: some inplementations require using
+// static inflatable guest =
+
+        cout << "Expand your guest list with " << guest.name;
+        cout << " and " << pal.name << "!\n";
+// pal.name is the name member of the pal variable
+        cout << "You can have both for $";
+        cout << guest.price + pal.price << "!\n";
+        assgn_st();
+        return 0;
+}
+
+// 4.12 assgn_st.cpp -- assigning structures
+struct _inflatable      // use a underline here because 4.11 have already structed `inflatable`
+{
+        char name[20];
+        float volume;
+        double price;
+};
+int assgn_st()
+{
+        using namespace std;
+        cout << "4.12" << endl;
+        _inflatable bouquet =
+        {
+                "sunflowers",
+                0.20,
+                12.49
+        };
+        _inflatable choice;
+        cout << "bouquet: " << bouquet.name << " for $";
+        cout << bouquet.price << endl;
+
+        choice = bouquet;       // assign one structure to anothe
+        cout << "choice: " << choice.name << " for $";
+        cout << "choice.price" << endl;
+        arrstruc();
+        return 0;
+}
+
+// 4.13 arrstruc.cpp -- an array of structures
+struct __inflatable
+{
+        char name[20];
+        float volume;
+        double price;
+};
+int arrstruc()
+{
+        using namespace std;
+        cout << "4.13" << endl;
+
+        __inflatable guests[2] =                // initializing an array of structs
+        {
+                {"Bambi", 0.5, 21.99},          // first structure in array
+                {"Godzilla", 2000, 565.99}      // next structure in array
+        };
+
+        cout << "The guests " << guests[0].name << " and " << guests[1].name
+             << "\nhave a combined volume of "
+             << guests[0].volume + guests[1].volume << " cubic feet.\n";
         return 0;
 }

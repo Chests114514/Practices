@@ -1,4 +1,4 @@
-// Start To Study C++
+// Start To Study Cpp
 
 #include <iostream> // This header includes "cout" and "cin", in the name, "io" is input/output
 #include <cmath> // This header is about maths
