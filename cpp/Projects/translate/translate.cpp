@@ -11,11 +11,9 @@ int main()
         string langInputCode;
         string langOutputCode;
 
-        cout << "\033[1;32mWelcome to Translate\033[0m" << endl;
+        cout << "\033[1;32mWelcome to Translator\033[0m" << endl << endl;
         cout << "Input Language:";
-        cin >> langInput
-        cout << "Output Language:"
-        cin >> langOutput
+        cin >> langInput;
 
         if (langInput == "Afrikaans") {
                 langInputCode = "af";
@@ -78,7 +76,7 @@ int main()
                 langInputCode = "ny";
         }
         if (langInput == "Chinese Literary") {
-                langInputCode = "lzh"
+                langInputCode = "lzh";
         }
         if (langInput == "Chinese") {
                 langInputCode = "zh-CN";
@@ -179,7 +177,40 @@ int main()
         if (langInput == "Hill Mari") {
                 langInputCode = "mrj";
         }
+        if (langInput == "Hindi") {
+                langInputCode = "hi";
+        }
+        if (langInput == "Hmong") {
+                langInputCode = "hmn";
+        }
+        if (langInput == "Hungarian") {
+                langInputCode = "hu";
+        }
+        if (langInput == "Icelandic") {
+                langInputCode = "is";
+        }
+        if (langInput == "Igbo") {
+                langInputCode = "ig";
+        }
+        if (langInput == "Ilocano") {
+                langInputCode = "ilo";
+        }
+        if (langInput == "Indonesian") {
+                langInputCode = "id";
+        }
+        if (langInput == "Inuinnaqtun") {
+                langInputCode = "ikt";
+        }
+        if (langInput == "Inuktitut") {
+                langInputCode = "iu";
+        }
+        if (langInput == "Inuktitut Latin") {
+                langInputCode = "iu-Latn";
+        }
 
-        string command = "trans -I " + langInputCode + ":" + langOutputCode
-        system (command.c_str())
+        cout << "Output Language: ";
+        cin >> langOutput;
+
+        string command = "trans -I " + langInputCode + ":" + langOutputCode;
+        system (command.c_str());
 }
