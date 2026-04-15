@@ -1,6 +1,6 @@
 // Composite
 
-#include <iostream>	// 4.1 4.2 4.3 4.4 4.5 4.6 4.7 4.8 4.9 4.10 4.11 4.12 4.13
+#include <iostream>	// 4.1 4.2 4.3 4.4 4.5 4.6 4.7 4.8 4.9 4.10 4.11 4.12 4.13 4.14 4.15
 #include <cstring>	// 4.2 4.9 4.10
 #include <string>       // 4.7 4.8 4.9 4.10
 
@@ -16,6 +16,8 @@ int strtype4();
 int structur();
 int assgn_st();
 int arrstruc();
+int address();
+int pointer();
 
 int main()
 {
@@ -354,5 +356,49 @@ int arrstruc()
         cout << "The guests " << guests[0].name << " and " << guests[1].name
              << "\nhave a combined volume of "
              << guests[0].volume + guests[1].volume << " cubic feet.\n";
+        address();
+        return 0;
+}
+
+int address()
+{
+        using namespace std;
+        // 4.14 address.cpp -- using the & operator to find addresses
+        cout << "4.14" << endl;
+
+        int donuts = 6;
+        double cups = 4.5;
+
+        cout << "donuts value = " << donuts;
+        cout << " and donuts address = " << &donuts << endl;
+// NOTE: you may need to use unsigned (&donuts)
+// and unsigned (&cups)
+        cout << "cups value = " << cups;
+        cout << " and cups address = " << &cups << endl;
+        pointer();
+        return 0;
+}
+
+int pointer()
+{
+        using namespace std;
+        // 4.15 pointer.cpp -- our first pointer variable
+        cout << "4.15" << endl;
+
+        int updates = 6;        // declare a variable
+        int * p_updates;        // declare pointer to an int
+        p_updates = &updates;   // assign address of int to pointer
+
+// express values two ways
+        cout << "Values: updates = " << updates;
+        cout << ", *p_updates = " << *p_updates << endl;
+
+// express address two ways
+        cout << "Addresses: &updates = " << &updates;
+        cout << ", p_updates = " << p_updates << endl;
+
+// use pointer to change value
+        *p_updates = *p_updates + 1;
+        cout << "Now updates = " << updates << endl;
         return 0;
 }
