@@ -1,6 +1,6 @@
 // Composite
 
-#include <iostream>	// 4.1 4.2 4.3 4.4 4.5 4.6 4.7 4.8 4.9 4.10 4.11 4.12 4.13 4.14 4.15
+#include <iostream>	// 4.1 4.2 4.3 4.4 4.5 4.6 4.7 4.8 4.9 4.10 4.11 4.12 4.13 4.14 4.15 4.16 4.17
 #include <cstring>	// 4.2 4.9 4.10
 #include <string>       // 4.7 4.8 4.9 4.10
 
@@ -18,6 +18,8 @@ int assgn_st();
 int arrstruc();
 int address();
 int pointer();
+int init_ptr();
+int use_new();
 
 int main()
 {
@@ -400,5 +402,57 @@ int pointer()
 // use pointer to change value
         *p_updates = *p_updates + 1;
         cout << "Now updates = " << updates << endl;
+        init_ptr();
+        return 0;
+}
+
+int init_ptr()
+{
+        using namespace std;
+        // 4.16 init_ptr.cpp -- initialize a pointer
+        cout << "4.16" << endl;
+
+        int higgens = 5;
+        int * pt = &higgens;
+
+        cout << "Value of higgens = " << higgens
+             << "; Address of higgens = " << &higgens << endl;
+        cout << "Value of *pt = " << *pt
+             << "; Value of pt = " << pt << endl;
+        use_new();
+        return 0;
+}
+
+int use_new()
+{
+        using namespace std;
+        // 4.17 use_new.cpp -- using the new operator
+        cout << "4.17" << endl;
+
+        int nights = 1001;
+        int * pt = new int;             // allocate space for an int
+        *pt = 1001;                     // store a value there
+
+        cout << "nights value = ";
+        cout << nights << ": location " << &nights << endl;
+        cout << "int ";
+        cout << "value = " << *pt << ": location = " << pt << endl;
+        double * pd = new double;       // allocate space for a double
+        *pd = 10000001.0;               // store a double there
+
+        cout << "double ";
+        cout << "value = " << *pd << ": location = " << pd << endl;
+        cout << "location of pointer pd: " << &pd << endl;
+        cout << "size of pt = " << sizeof(pt);
+        cout << ": size of *pt = " << sizeof(*pt) << endl;
+        cout << "size of pd = " << sizeof(pd);
+        cout << ": size of *pd = " << sizeof(*pd) << endl;
+
+        // not appeared in book but recommended, to release memory
+        // run a server without this may cause memory overflow
+        delete pt;
+        pt = nullptr;
+        delete pd;
+        pd = nullptr;
         return 0;
 }
