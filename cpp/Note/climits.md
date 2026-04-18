@@ -3,38 +3,38 @@
 
 **Symbol Constants in Climits**
 `CHAR_BIT`
-> length of char
+> length of char  
 `CHAR_MAX`
-> maximum of char
+> maximum of char  
 `CHAR_MIN`
-> minimum of char
+> minimum of char  
 `SCHAR_MAX`
-> maximum of signed char
+> maximum of signed char  
 `SCHAR_MIN`
-> minimum of signed char
+> minimum of signed char  
 `UCHAR_MAX`
-> maximum of unsigned char
+> maximum of unsigned char  
 `SHRT_MAX`
-> maximum of short
+> maximum of short  
 `SHRT_MIN`
-> minimum of short
+> minimum of short  
 `USHRT_MAX`
-> maximum of unsigned short
+> maximum of unsigned short  
 `INT_MAX`
-> maximum of int
+> maximum of int  
 `INT_MIN`
-> minimum of int
+> minimum of int  
 `UNIT_MAX`
-> maximum of unsigned int
+> maximum of unsigned int  
 `LONG_MAX`
-> maximum of long
+> maximum of long  
 `LONG_MIN`
-> minimum of long
+> minimum of long  
 `ULONG_MAX`
-> maximum of unsigned long
+> maximum of unsigned long  
 `LLONG_MAX`
-> maximum of long long
+> maximum of long long  
 `LLONG_MIN`
-> minimum of long long
+> minimum of long long  
 `ULLONG_MAX`
-> maximum of unsigned long long
+> maximum of unsigned long long  

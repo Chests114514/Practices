@@ -1,6 +1,6 @@
-# `for` loop
+# `for` Loop
 
-## 1. Basic `for` loop
+## 1. Basic `for` Loop
 
 The most classic way to write, suitable scene to control times or access index  
 
@@ -87,7 +87,5 @@ loop to `vector` cause re-allocation, or `size()` change may cause infnite loop
 | Function | To Use |
 |:-|:-|
 | Traversing | Use scope `for` |
-|:-|:-|
 | Need Subscript Calculate | Use basic `for` |
-|:-|:-|
 | Reverse Order Traversing | `for (int i = vec.size() - 1; i >= 0; --i)` |
