@@ -141,9 +141,9 @@
     set upstream and push  
 `git push origin --delete (branch)`  
 `git push --force`  
-    force push *(CAREFUL!)*  
+    force push **(CAREFUL!)**  
 `git push -f`  
-    force push *(CAREFUL!)*  
+    force push **(CAREFUL!)** 
 
 ### 6.2 Synchronous Strategy
 `git stash`  
