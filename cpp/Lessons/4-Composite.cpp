@@ -1,6 +1,6 @@
 // Composite
 
-#include <iostream>	// 4.1 4.2 4.3 4.4 4.5 4.6 4.7 4.8 4.9 4.10 4.11 4.12 4.13 4.14 4.15 4.16 4.17
+#include <iostream>	// 4.1 4.2 4.3 4.4 4.5 4.6 4.7 4.8 4.9 4.10 4.11 4.12 4.13 4.14 4.15 4.16 4.17 4.18 4.19
 #include <cstring>	// 4.2 4.9 4.10
 #include <string>       // 4.7 4.8 4.9 4.10
 
@@ -20,6 +20,8 @@ int address();
 int pointer();
 int init_ptr();
 int use_new();
+int arraynew();
+int addpntrs();
 
 int main()
 {
@@ -454,5 +456,61 @@ int use_new()
         pt = nullptr;
         delete pd;
         pd = nullptr;
+        arraynew();
+        return 0;
+}
+
+int arraynew()
+{
+        using namespace std;
+        // 4.18 arraynew.cpp -- using the new operator for arrays
+        cout << "4.18" << endl;
+
+        double * p3 = new double [3];   // space for 3 doubles
+        p3[0] = 0.2;                    // treay p3 like an array name
+        p3[1] = 0.5;
+        p3[2] = 0.8;
+        cout << "p3[1] is " << p3[1] << ".\n";
+        p3 = p3 + 1;                    // increment the pointer
+        cout << "Now p3[0] is " << p3[0] << " and ";
+        cout << "p3[1] is " << p3[1] << ".\n";
+        p3 = p3 - 1;                    // point back to beginning
+        delete [] p3;                   // free the memory
+        p3 = nullptr;
+        addpntrs();
+        return 0;
+}
+
+int addpntrs()
+{
+        using namespace std;
+        // 4.19 addpntrs.cpp -- pointer addition
+        cout << "4.19" << endl;
+
+        double wages[3] = {10000.0, 20000.0, 30000.0};
+        short stacks[3] = {3, 2, 1};
+
+// Here are two ways to get the address of an array
+        double * pw = wages;            // name of an array = address
+        short * ps = &stacks[0];        // or use address operator
+// with array element
+        cout << "pw = " << pw << ", *pw = " << *pw << endl;
+        pw = pw + 1;
+        cout << "add 1 to the pw pointer:\n";
+        cout << "pw = " << pw << ", *pw = " << *pw << "\n\n";
+        cout << "ps = " << ps << ", *ps = " << *ps << endl;
+        ps = ps + 1;
+        cout << "add 1 to the ps pointer :\n";
+        cout << "ps = " << ps << ", *ps = " << *ps << "\n\n";
+
+        cout << "access two elements with array notation\n";
+        cout << "stacks[0] = " << stacks[0]
+             << ", stacks[1] = " << stacks[1] << endl;
+        cout << "access two elements with pointer notation\n";
+        cout << "*stacks = " << *stacks
+             << ", *(stacks + 1) = " << "*(stacks + 1)" << endl;
+
+        cout << sizeof(wages) << " = size of wages array\n";
+        cout << sizeof(pw) << " = size of pw pointer\n";
         return 0;
 }
