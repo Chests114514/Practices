@@ -1,7 +1,7 @@
 // Composite
 
-#include <iostream>	// 4.1 4.2 4.3 4.4 4.5 4.6 4.7 4.8 4.9 4.10 4.11 4.12 4.13 4.14 4.15 4.16 4.17 4.18 4.19
-#include <cstring>	// 4.2 4.9 4.10
+#include <iostream>	// 4.1 4.2 4.3 4.4 4.5 4.6 4.7 4.8 4.9 4.10 4.11 4.12 4.13 4.14 4.15 4.16 4.17 4.18 4.19 4.20
+#include <cstring>	// 4.2 4.9 4.10 4.20
 #include <string>       // 4.7 4.8 4.9 4.10
 
 int strings();
@@ -22,6 +22,7 @@ int init_ptr();
 int use_new();
 int arraynew();
 int addpntrs();
+int ptrstr();
 
 int main()
 {
@@ -512,5 +513,42 @@ int addpntrs()
 
         cout << sizeof(wages) << " = size of wages array\n";
         cout << sizeof(pw) << " = size of pw pointer\n";
+        ptrstr();
+        return 0;
+}
+
+int ptrstr()
+{
+        using namespace std;
+        // 4.20 ptrstr.cpp -- using pointers to strings
+        cout << "4.20" << endl;
+
+        char animal[20] = "bear";       // animal holds bear
+        const char * bird = "wren";     // bird holds address of string
+        char * ps;                      // uninitialized
+
+        cout << animal << " and ";      // display bear
+        cout << bird << "\n";           // display wren
+
+        // cout << ps << "\n";          // may display garbage, may cause crash
+
+        cout << "Enter a kind of animal: ";
+        cin >> animal;                  // ok if input < 20 chars
+        // cin >> ps; Too horrible a blunder to try; ps doesn't
+        //            point to allocated space
+
+        ps = animal;                    // set ps to point to string
+        cout << ps << "!\n";            // ok, same as using animal
+        cout << "Before using strcpy():\n";
+        cout << animal << " at " << (int *) animal << endl;
+        cout << ps << " at " << (int *) ps << endl;
+
+        ps = new char[strlen(animal) + 1];      // get new storage
+        strcpy(ps, animal);             // copy string to new storage
+        cout << "After using strcpy():\n";
+        cout << animal << " at " << (int *) animal << endl;
+        cout << ps << " at " << (int *) ps << endl;
+        delete [] ps;
+        ps = nullptr;
         return 0;
 }
