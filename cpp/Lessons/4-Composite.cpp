@@ -1,8 +1,10 @@
 // Composite
 
-#include <iostream>	// 4.1 4.2 4.3 4.4 4.5 4.6 4.7 4.8 4.9 4.10 4.11 4.12 4.13 4.14 4.15 4.16 4.17 4.18 4.19 4.20
-#include <cstring>	// 4.2 4.9 4.10 4.20
+#include <iostream>	// 4.1 4.2 4.3 4.4 4.5 4.6 4.7 4.8 4.9 4.10 4.11 4.12 4.13 4.14 4.15 4.16 4.17 4.18 4.19 4.20 4.21 4.22 4.23 4.24
+#include <cstring>	// 4.2 4.9 4.10 4.20 4.22
 #include <string>       // 4.7 4.8 4.9 4.10
+#include <vector>       // 4.24
+#include <array>        // 4.24
 
 int strings();
 int instr1();
@@ -23,6 +25,10 @@ int use_new();
 int arraynew();
 int addpntrs();
 int ptrstr();
+int newstrct();
+int _delete();
+int mixtypes();
+int choices();
 
 int main()
 {
@@ -550,5 +556,127 @@ int ptrstr()
         cout << ps << " at " << (int *) ps << endl;
         delete [] ps;
         ps = nullptr;
+        newstrct();
+        return 0;
+}
+
+// 4.21 newstrct.cpp -- using new with a structure
+struct ___inflatable    // structure definition
+{
+        char name[20];
+        float volume;
+        double price;
+};
+int newstrct()
+{
+        using namespace std;
+        cout << "4.21" << endl;
+
+        ___inflatable * ps = new ___inflatable; // allow memory for structure
+        cout << "Enter name of inflatable item: ";
+        cin.get(ps->name, 20);                  // method 1 for member access
+        cout << "Enter volume in cubic feet: ";
+        cin >> (*ps).volume;
+        cout << "Enter price: $";
+        cin >> ps->price;
+        cout << "Name: " << (*ps).name << endl;                 // method 2
+        cout << "Volume: " << ps->volume << " cubic feet\n";    // method 1 
+        cout << "Price: $" << ps->price << endl;                // method 1
+        delete ps;
+        ps = nullptr;
+        _delete();
+        return 0;
+}
+
+// 4.22 delete.cpp -- using the delete operator
+char * getname(void);   // function prototype
+int _delete()
+{
+        using namespace std;
+        cout << "4.22" << endl;
+
+        char * name;            // create pointer but no storage
+
+        name = getname();       // assign address of string to name
+        cout << name << " at " << (int *) name << "\n";
+        delete [] name;         // memory freed
+
+        name = getname();       // reuse freed memory
+        cout << name << " at " << (int *) name << "\n";
+        delete [] name;         // memory freed again
+        name = nullptr;
+        mixtypes();
+        return 0;
+}
+char * getname()                // return pointer to new string
+{
+        using namespace std;
+
+        char temp[80];          // temporary storage
+        cout << "Enter last name: ";
+        cin >> temp;
+        char * pn = new char[strlen(temp) + 1];
+        strcpy(pn, temp);       // copy string into smaller space
+
+        return pn;              // temp lost when function ends
+}
+
+// 4.23 mixtypes.cpp -- some type combinations
+struct antarctica_years_end
+{
+        int year;
+/* some really intresting data. etc. */
+};
+int mixtypes()
+{
+        using namespace std;
+        cout << "4.23" << endl;
+
+        antarctica_years_end s01, s02, s03;
+        s01.year = 1998;
+        antarctica_years_end * pa = &s02;
+        pa->year = 1999;
+        antarctica_years_end trio[3];   // array of 3 structures
+        trio[0].year = 2003;
+        cout << trio->year << endl;
+        const antarctica_years_end * arp[3] = {&s01, &s02, &s03};
+        cout << arp[1]->year << endl;
+        const antarctica_years_end ** ppa = arp;
+        auto ppb = arp; // C++11 automatic type deduction
+// or else  use const antarctica_years_end ** ppb = arp;
+        cout << (*ppa)->year << endl;
+        cout << (*(ppb+1))->year << endl;
+        choices();
+        return 0;
+}
+
+int choices()
+{
+        using namespace std;
+        cout << "4.24" << endl;
+
+// C, original C++
+        double a1[4] = {1.2, 2.4, 3.6, 4.8};
+// C++98 STL
+        vector<double> a2(4);   // create vector with 4 elements
+// no simple way to initalize in C98
+        a2[0] = 1.0/3.0;
+        a2[1] = 1.0/5.0;
+        a2[2] = 1.0/7.0;
+        a2[3] = 1.0/9.0;
+// C++11 -- create and initalize array object
+        array<double, 4> a3 = {3.14, 2.72, 1.62, 1.41};
+        array<double, 4> a4;
+        a4 = a3;        // valid for array objects of same size 
+// use array notation
+        cout << "a1[2]: " << a1[2] << " at " << &a1[2] << endl;
+        cout << "a2[2]: " << a2[2] << " at " << &a2[2] << endl;
+        cout << "a3[2]: " << a3[2] << " at " << &a3[2] << endl;
+        cout << "a4[2]: " << a4[2] << " at " << &a4[2] << endl;
+// misdeed
+        a1[-2] = 20.2;
+        cout << "a1[-2]: " << a1[-2] << " at " << &a1[-2] << endl;
+        cout << "a3[2]: " << a3[2] << " at " << &a3[2] << endl;
+        cout << "a4[2]: " << a4[2] << " at " << &a4[2] << endl;
         return 0;
 }
