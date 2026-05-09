@@ -1,13 +1,16 @@
 // Loop and Relational Expressions
 
-#include <iostream>     // 5.1 5.2 5.3 5.4 5.5 5.6
-#include <string>       // 5.6
+#include <iostream>     // 5.1 5.2 5.3 5.4 5.5 5.6 5.7 5.8 5.9
+#include <string>       // 5.6 5.9
 
 int num_test();
 int express();
 int formore();
 int bigstep();
 int forstr1();
+int plus_one();
+int block();
+int forstr2();
 
 int main() 
 {
@@ -120,5 +123,69 @@ int forstr1()
                 cout << word[i];
         }
         cout << "\nBye.\n";
+        plus_one();
+        return 0;
+}
+
+int plus_one()
+{
+        using std::cout;
+        // 5.7 plus_one.cpp -- th increment operator
+        cout << "5.7\n";
+
+        int a = 20;
+        int b = 20;
+        cout << "a   = " << a << << ":   b = " << b << "\n";
+        cout << "a++ = " << a++ << ": ++b = " << ++b << "\n";
+        cout << "a   = " << a << ":   b = " << b << "\n";
+        block();
+        return 0;
+}
+
+int block()
+{
+        using namespace std;
+        // 5.8 block.cpp -- use a block statement
+        cout << "5.8" << endl;
+
+        cout << "The Amazing Accounto will sum and average ";
+        cout << "five numbers for you.\n";
+        cout << "Please enter five values:\n";
+        double number;
+        double sum = 0.0;
+        for (int i; i <= 5; i++)
+        {                                       // block starts here
+                cout << "Value " << i << ": ";
+                cin >> number;
+                sum += number;
+        }                                       // block ends here
+        cout << "Five exquiste choices indeed! ";
+        cout << "They sum to " << sum << endl;
+        cout << "and average to " << sum / 5 << ".\n";
+        cout << "The Amazing Accounto bids you adieu!\n";
+        forstr2();
+        return 0;
+}
+
+int forstr2()
+{
+        using namespace std;
+        // 5.9 forstr2.cpp -- reversing an array
+        cout << "5.9" << endl;
+
+        cout << "Enter a word: ";
+        string word;
+        cin >> word;
+
+        // physically modify string object
+        char temp;
+        int i, j;
+        for (j = 0, i = word.size() - 1; j < i; --i, ++j)
+        {                               // start block
+                temp = word[i];
+                word[i] = word[j];
+                word[j] = temp;
+        }                               // end block
+        cout << word << "\nDone\n";
         return 0;
 }
