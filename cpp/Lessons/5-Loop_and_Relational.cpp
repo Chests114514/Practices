@@ -1,6 +1,6 @@
 // Loop and Relational Expressions
 
-#include <iostream>     // 5.1 5.2 5.3 5.4 5.5 5.6 5.7 5.8 5.9 5.10 5.11 5.12 5.13 5.14 5.15
+#include <iostream>     // 5.1 5.2 5.3 5.4 5.5 5.6 5.7 5.8 5.9 5.10 5.11 5.12 5.13 5.14 5.15 5.16 5.17 5.18 5.19 5.20
 #include <string>       // 5.6 5.9 5.12
 #include <cstring>      // 5.11
 #include <ctime>        // 5.14
@@ -19,6 +19,11 @@ int compstr2();
 int _while();
 int waiting();
 int dowhile();
+int textin1();
+int textin2();
+int textin3();
+int textin4();
+int nested();
 
 int main() 
 {
@@ -306,5 +311,129 @@ int dowhile()
                 cin >> n;       // execute body
         } while (n != 7);       // then test
         cout << "Yes, 7 is my favourite.\n";
+        textin1();
+        return 0;
+}
+
+int textin1()
+{
+        using namespace std;
+        // 5.16 textin1.cpp -- reading chars with a while loop
+        cout << "5.16" << endl;
+
+        char ch;
+        int count = 0;          // use basic input
+        cout << "Enter characters; enter # to quit:\n";
+        cin >> ch;              // get a character
+        while (ch != '#')       // test the character
+        {
+                cout << ch;     // echo the character
+                ++count;        // count the character
+                cin >> ch;      // get the next character
+        }
+        cout << endl << count << " characters read\n";
+        textin2();
+        return 0;
+}
+
+int textin2()
+{
+        using namespace std;
+        // 5.17 textin2.cpp -- using cin.get(char)
+        cout << "5.17" << endl;
+
+        char ch;
+        int count = 0;
+
+        cout << "Enter characters; enter # to quit:\n";
+        cin.get(ch);            // use the cin.get(ch) function
+        while (ch != '#')
+        {
+                cout << ch;
+                ++count;
+                cin.get(ch);    // use it again
+        }
+        cout << endl << count << " characters read\n";
+        textin3();
+        return 0;
+}
+
+int textin3()
+{
+        using namespace std;
+        // 5.18 textin3.cpp -- reading chars to end of file
+        cout << "5.18" << endl;
+
+/* My device can't handle EOF, so this part is not going to running
+        char ch;
+        int count = 0;
+        cin.get(ch);            // attempt to read a char
+        while (cin.fail() == false)     // test for EOF
+        {
+                cout << ch;     // echo character
+                ++count;
+                cin.get(ch);    // attempt to read another char
+        }
+        cout << endl << count << " characters read\n";
+*/
+        textin4();
+        return 0;
+}
+
+int textin4()
+{
+        using namespace std;
+        // 5.19 textin4.cpp -- reading chars with cin.get()
+        cout << "5.19" << endl;
+
+/*
+        int ch;                         // should be int, not char
+        int count = 0;
+
+        while ((ch = cin.get()) != EOF) // test for end-of-file
+        {
+                cout.put(char(ch));
+                ++count;
+        }
+        cout << endl << count << " characters read\n";
+*/
+        nested();
+        return 0;
+}
+
+// 5.20 nested.cpp -- nested loops 2-D array
+const int Cities = 5;
+const int Years = 4;
+int nested()
+{
+        using namespace std;
+        cout << "5.20" << endl;
+
+        const char * cities[Cities] =   // array of pointers
+        {                               // to 5 strings
+                "Gribble City",
+                "Gribbletown",
+                "New Gribble",
+                "San Gribble",
+                "Gribble Vista"
+        };
+
+        int maxtemps[Years] [Cities] =  // 2-D array
+        {
+                {96, 100, 87, 101, 105},        // values for maxtemps[0]
+                {96, 98, 91, 107, 104},         // values for maxtemps[1]
+                {97, 101, 93, 108, 107},        // values for maxtemps[2]
+                {98, 103, 95, 109, 108}         // values for maxtemps[3]
+        };
+
+        cout << "Maximum temperatures for 2008 - 2011\n\n";
+        for (int city = 0; city < Cities; ++city)
+        {
+                cout << cities[city] << ":\t";
+                for (int year = 0; year < Years; ++year)
+                        cout << maxtemps[year] [city] << "\t";
+                cout << endl;
+        }
+                // cin.get();
         return 0;
 }
