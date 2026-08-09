@@ -257,3 +257,11 @@
 `git pull origin main --rebase`  
 *Resolving Conflicts*  
 `git push origin feature/collabexample`  
+
+## 11.Pull Requests
+
+### 11.1 Send Pull Requests
+`git format-patch -1 -o ./`  
+    make a .patch file, includes 1 last commits  
+`git format-patch -3 -o ./`  
+    make a .patch file, includes 3 last commits
