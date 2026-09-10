@@ -1,0 +1,15 @@
+/home/jiaming-ouyang/Code/csharp/DotnetTest/obj/Debug/net10.0/DotnetTest.GeneratedMSBuildEditorConfig.editorconfig
+/home/jiaming-ouyang/Code/csharp/DotnetTest/obj/Debug/net10.0/DotnetTest.AssemblyInfoInputs.cache
+/home/jiaming-ouyang/Code/csharp/DotnetTest/obj/Debug/net10.0/DotnetTest.AssemblyInfo.cs
+/home/jiaming-ouyang/Code/csharp/DotnetTest/obj/Debug/net10.0/DotnetTest.csproj.CoreCompileInputs.cache
+/home/jiaming-ouyang/Code/csharp/DotnetTest/obj/Debug/net10.0/DotnetTest.sourcelink.json
+/home/jiaming-ouyang/Code/csharp/DotnetTest/bin/Debug/net10.0/DotnetTest
+/home/jiaming-ouyang/Code/csharp/DotnetTest/bin/Debug/net10.0/DotnetTest.deps.json
+/home/jiaming-ouyang/Code/csharp/DotnetTest/bin/Debug/net10.0/DotnetTest.runtimeconfig.json
+/home/jiaming-ouyang/Code/csharp/DotnetTest/bin/Debug/net10.0/DotnetTest.dll
+/home/jiaming-ouyang/Code/csharp/DotnetTest/bin/Debug/net10.0/DotnetTest.pdb
+/home/jiaming-ouyang/Code/csharp/DotnetTest/obj/Debug/net10.0/DotnetTest.dll
+/home/jiaming-ouyang/Code/csharp/DotnetTest/obj/Debug/net10.0/refint/DotnetTest.dll
+/home/jiaming-ouyang/Code/csharp/DotnetTest/obj/Debug/net10.0/DotnetTest.pdb
+/home/jiaming-ouyang/Code/csharp/DotnetTest/obj/Debug/net10.0/DotnetTest.genruntimeconfig.cache
+/home/jiaming-ouyang/Code/csharp/DotnetTest/obj/Debug/net10.0/ref/DotnetTest.dll
