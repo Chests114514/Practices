@@ -2,6 +2,8 @@
 
 int ifelse();
 int ifelseif();
+int _or();
+int _and();
 
 int main() {
         using std::cin;         // using declarations
@@ -71,5 +73,72 @@ int ifelseif() {
                 else
                         cout << Fave << " is right!\n";
         } while (n != Fave);
+        _or();
+        return 0;
+}
+
+int _or() {
+        using namespace std;
+        // 6.4 or.cpp -- using the logical OR operator
+        cout << "6.4" << endl;
+
+        cout << "This program may reformat your hard disk\n"
+                "and destroy all your data.\n"
+                "Do you wish to continue? <y/n> ";
+        char ch;
+        cin >> ch;
+        if (ch == 'y' || ch == 'Y')                     // y or Y
+                cout << "You were warned!\a\a\n";
+        else if (ch == 'n' || ch == 'N')                // n or N
+                cout << "A wise choice ... bye\n";
+        else
+                cout << "That wasn't a y or n! Apparently you "
+                        "can't follow\ninstructions, so "
+                        "I'll trash your disk anyway.\a\a\a\n";
+        _and();
+        return 0;
+}
+
+// 6.5 and.cpp -- using the logical AND operator
+const int ArSize = 6;
+int _and() {
+        using namespace std;
+        cout << "6.5" << endl;
+
+        float naaq[ArSize];
+        cout << "Enter the NAAQs (New Age Awareness Quotients) "
+                "of\nyour neighbours. Program terminates "
+                "when you make\n" << ArSize << " entries "
+                "or enter a negative value.\n";
+
+        int i = 0;
+        float temp;
+        cout << "First value: ";
+        cin >> temp;
+        while (i < ArSize && temp >= 0) // 2 quitting criteria
+        {
+                naaq[i] = temp;
+                ++i;
+                if (i < ArSize)         // room left in array
+                {
+                        cout << "Next value: ";
+                        cin >> temp;    // so get next value
+                }
+        }
+        if (i == 0)
+                cout << "No data--bye\n";
+        else
+        {
+                cout << "Enter your NAAQ: ";
+                float you;
+                cin >> you;
+                int count = 0;
+                for (int j = 0; j < i; j++)
+                        if (naaq[j] > you)
+                                ++count;
+                cout << count;
+                cout << " of your neighbours have greater awareness of\n"
+                        "the New Age than you do.\n";
+        }
         return 0;
 }
