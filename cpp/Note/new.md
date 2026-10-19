@@ -42,6 +42,10 @@ Second, you `a = nullptr` the variable, this is not necessary but recommended, i
 it will just get the context in the same memory address, but it could be everything now, which can cause anything and every fatal
 error.
 
+Remember to do this while you don't need it anymore.
+
+Do this unless you know what is that address going to store.
+
 ## Why you should use new
 
 While the current function is going to quit, and a really big variable which you still need to keep, you use new, don't try to tr
