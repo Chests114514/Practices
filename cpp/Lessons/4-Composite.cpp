@@ -266,7 +266,7 @@ int strtype4()
         cout << "Length of string in charr before input: "
              << strlen(charr) << endl;
         cout << "Length of string in str before input: "
-             << str.size() << endl;
+             << str.size() << endl;             // str.size() returns the length of str
         cout << "Enter a line of text:\n";
         cin.getline(charr, 20);         // indicate maximum length
         cout << "You entered: " << charr << endl;
@@ -459,8 +459,8 @@ int use_new()
 
         // not appeared in book but recommended, to release memory
         // run a server without this may cause memory overflow
-        delete pt;
-        pt = nullptr;
+        delete pt;      // this free the memory allocated by new operator
+        pt = nullptr;   // this is a good practice to avoid dangling pointer
         delete pd;
         pd = nullptr;
         arraynew();
