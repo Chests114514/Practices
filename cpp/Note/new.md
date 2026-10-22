@@ -64,3 +64,15 @@ int main() {
 ```
 
 Also, while you don't know how long should this variable should hold avaliabe, you should also use `new`.
+
+## Overview
+
+*example*
+
+-> A var `example` init with `new` in function `examplenew()`  
+-> function `examplenew()` quits  
+-> var `example` still exists  
+-> function `usenew()` use var `example`  
+-> the var `example` is not going to use anymore  
+-> so in the `usenew()`, do `delete example; example = nullptr`  
+-> finish
