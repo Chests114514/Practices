@@ -18,7 +18,7 @@ int main() {
 
 you only need to set once in the whole file *(unless you're sure that the program is running slow enough, or you will get same numbers because the program run too fast, it's still the same time)*, the seed is universal.
 
-## 2. Genrate random number
+## 2. Generate random number
 
 You can use different range:
 
