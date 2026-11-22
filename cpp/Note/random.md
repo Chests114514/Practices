@@ -1,4 +1,4 @@
-# librandom
+# Random
 
 ## 1. Set a random seed
 
